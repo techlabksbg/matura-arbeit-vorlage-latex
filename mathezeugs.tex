@@ -1,0 +1,59 @@
+\chapter{Mathematik in \LaTeX}\label{sec:mathezeugs}
+
+\section{Vektoren}
+
+Es empfiehlt sich die <<amsmath>> package einzubinden, mit
+\begin{verbatim}
+\usepackage{amsmath}
+\end{verbatim}
+
+\begin{equation}\label{eq:erste}
+\vec v = \begin{pmatrix}
+a_1\\
+a_2\\
+a_3
+\end{pmatrix}
+\end{equation}
+
+Verwendet man \autoref{eq:erste} dann erhält man:
+
+\begin{equation}\label{eq:zweite}
+\vec u = \begin{pmatrix}
+a_1+b_1\\
+a_2-\pi\\
+a_3+\cos\left(\alpha^2\right)
+\end{pmatrix}
+\end{equation}
+
+Den Code dazu ist in \autoref{fig:latex-code} ersichtlich.
+
+\subsection{Code}
+\begin{figure}[ht]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\begin{equation}\label{eq:erste}
+\vec v = \begin{pmatrix}
+a_1\\
+a_2\\
+a_3
+\end{pmatrix}
+\end{equation}
+
+Verwendet man \autoref{eq:erste} dann erhält man:
+
+\begin{equation}\label{eq:zweite}
+\vec u = \begin{pmatrix}
+a_1+b_1\\
+a_2-\pi\\
+a_3+\cos\left(\alpha^2\right)
+\end{pmatrix}
+\end{equation}
+
+Den Code dazu ist in \autoref{fig:latex-code} ersichtlich.
+
+\end{verbatim}
+\end{minipage}
+\caption{Code zu \autoref{eq:erste} und \autoref{eq:zweite}}
+\label{fig:latex-code}
+\end{figure}

@@ -1,0 +1,50 @@
+\chapter{Kompilierung}\label{sec:compilieren}
+
+\section{Windows}\label{sec:windows}
+
+Für Windows kann 
+\href{https://tug.org/texlive/windows.html}{\TeX{}live} empfohlen werden,
+Dowload auf \href{https://tug.org/texlive/windows.html}{\url{https://tug.org/texlive/windows.html}}
+
+Normalerweise wird \LaTeX{} mit einem Texteditor geschrieben,
+vorzugweise mit einem speziellen \LaTeX{}-Modus, oder gleich ein
+spezialiserter Texteditor. \TeX{}live empfiehlt den \TeX{}works Editor,
+zu finden auf 
+\href{https://www.tug.org/texworks/}{\url{https://www.tug.org/texworks/}}.
+
+Eine weitere Möglichkeit für eine LaTeX-Distribution
+ist MiKTeX, die auch mit einem 
+spezialisierten Editor geliefert wird. 
+
+Es gibt auch ein <<Grafisches Interface>>,
+\href{https://www.lyx.org/}{LyX (http://www.lyx.org)}. Was der taugt,
+und ob das überhaupt empfehlenswert ist, kann ich nicht beurteilen.
+
+\section{Mac}
+Da gibt es offenbar \href{https://tug.org/mactex/}{MacTeX
+  (https://tug.org/mactex/)}. Wird wohl gut sein.
+
+\section{Cloud-Lösung Overleaf}
+Cloud-Lösung für \LaTeX. Sorgen Sie für ein regelmässiges lokales
+Backup (wie bei allen Cloud-Diensten sind Ihre Daten auf fremden Datenträgern).
+
+\section{Linux}\label{sec:linux}
+Für diese Vorlage wurde das Makefile in \autoref{lst:makefile} verwendet.
+
+Sollte das Programm make nicht schon installiert sein, installieren Sie bitte das Ubuntu-Package 
+<<build-essential>> (oder ähnliches).
+
+\lstinputlisting[
+	language=make,
+	label=lst:makefile,
+	caption={[Makefile]Das Makefile, das diese Dokument kompiliert.},
+% linerange={88-93},firstnumber=88
+]{Makefile}
+
+
+Die einzelnen Kommandos können natürlich auch manuell eingegeben
+werden. Gerade für grössere Projekte eignen sich Makefiles aber, da
+alle Abhängigkeiten spezifiziert werden können. Z.B.\ können auch
+programmatisch erzeugte Grafiken automatisch neu erstellt werden, wenn
+die zugrundeliegenden Daten sich ändern.
+

@@ -1,0 +1,39 @@
+\chapter{Chemie}\label{sec:chemie}
+
+
+\section{Packages}
+Es gibt mehrere Packages. Exemplarisch ist hier das <<mhchem>>\cite{mhchem}
+Package vorgestellt:
+
+\begin{verbatim}
+\usepackage[version=4]{mhchem}
+\end{verbatim}
+
+\section{Verwendung} \label{sec:chemie-verwendung}
+Am besten lesen Sie die Dokumention des Packages, das ist voll mit vielen
+Beispielen. Hier sind einige daraus:
+
+\ce{H2O}
+
+\ce{Na+} und \ce{Cl-}
+
+\ce{^{227}_{90}Th}
+
+Der entsprechende Code ist in \autoref{fig:chemie} zu finden.
+
+\begin{figure}[ht]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{verbatim}
+\ce{H2O}
+
+\ce{Na+} und \ce{Cl-}
+
+\ce{^{227}_{90}Th}
+\end{verbatim}
+\end{minipage}
+\caption{\LaTeX{}-Code, der die chemischen Formeln in
+	\autoref{sec:chemie-verwendung}
+erzeugt.}
+\label{fig:chemie}
+\end{figure}
