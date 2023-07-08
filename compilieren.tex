@@ -1,38 +1,77 @@
 \chapter{Kompilierung}\label{sec:compilieren}
 
-\section{Windows}\label{sec:windows}
+\section{Technischer Ablauf}
+\LaTeX-Dateien (Dateiendung \texttt{.tex})
+sind einfache Text-Dateien (d.h. nur Buchstaben, keine
+Formatierung). 
+Sie können mit einem beliebigen Text-Editor bearbeitet werden.
+Spezialiserte Editoren oder Modi sind aber empfehlenswert.\\
+%
+Aus den \LaTeX-Dateien wird dann eine PDF-Datei erzeugt.
+Diesen Vorgang nennt man {\em kompilieren}.\\
+%
+Bei der Kompilierung gibt es mehrere Schritte, die bis auf einen
+vom Programm \texttt{pdflatex} erledigt werden.
+\begin{itemize}
+	\item Setzen des Text und <<Sammeln>> der Verweise.
+	\item Abermaliges Setzen und Einfügen der Verweise.
+	\item Setzen des Literaturverzeichnisses 
+		(hier mit \texttt{biber}, früher mit \texttt{bibtex}).
+	\item Abermaliges Setzen und Einfügen der Verweise.
+\end{itemize}
+Je nach Editor müssen diese Schritte manuell angestossen werden
+oder erfolgen automatisch (z.B. mit \TeX{}Studio) oder dem 
+beiliegenden \texttt{Makefile}, siehe \autoref{sec:make}.
 
-Für Windows kann 
-\href{https://tug.org/texlive/windows.html}{\TeX{}live} empfohlen werden,
-Dowload auf \href{https://tug.org/texlive/windows.html}{\url{https://tug.org/texlive/windows.html}}
+\section{Installation der Software}
 
-Normalerweise wird \LaTeX{} mit einem Texteditor geschrieben,
-vorzugweise mit einem speziellen \LaTeX{}-Modus, oder gleich ein
-spezialiserter Texteditor. \TeX{}live empfiehlt den \TeX{}works Editor,
-zu finden auf 
-\href{https://www.tug.org/texworks/}{\url{https://www.tug.org/texworks/}}.
+\subsection{Windows}\label{sec:windows}
+Für alle \LaTeX{}-Pakete und Programme zur Kompilierung wird
+MiK\TeX{} empfohlen, hier zu finden:
+\begin{center}
+\url{https://miktex.org/download}
+\end{center}
 
-Eine weitere Möglichkeit für eine LaTeX-Distribution
-ist MiKTeX, die auch mit einem 
-spezialisierten Editor geliefert wird. 
+\noindent Als Editor kann ich \TeX{}studio empfehlen, hier zu finden:
 
-Es gibt auch ein <<Grafisches Interface>>,
-\href{https://www.lyx.org/}{LyX (http://www.lyx.org)}. Was der taugt,
-und ob das überhaupt empfehlenswert ist, kann ich nicht beurteilen.
+\begin{center}
+\url{https://www.texstudio.org/}
+\end{center}
 
-\section{Mac}
+\noindent Von \TeX{}live und \TeX{}works kann ich nicht viel Gutes berichten.
+
+
+\subsection{Mac}
 Da gibt es offenbar \href{https://tug.org/mactex/}{MacTeX
   (https://tug.org/mactex/)}. Wird wohl gut sein.
 
-\section{Cloud-Lösung Overleaf}
+\subsection{Cloud-Lösung Overleaf}
 Cloud-Lösung für \LaTeX. Sorgen Sie für ein regelmässiges lokales
 Backup (wie bei allen Cloud-Diensten sind Ihre Daten auf fremden Datenträgern).
 
-\section{Linux}\label{sec:linux}
-Für diese Vorlage wurde das Makefile in \autoref{lst:makefile} verwendet.
+\subsection{Linux}\label{sec:linux}
+Für Ubuntu sollten folgende Pakete installiert werden:\\[2mm]
+%
+\texttt{
+sudo apt install texlive-latex-base texlive-pictures texlive-science\\ 
+sudo apt install texlive-latex-extra texlive-lang-german biber
+}\\[2mm]
+Hinweis: \TeX{}studio gibt es auch für Linux.
 
-Sollte das Programm make nicht schon installiert sein, installieren Sie bitte das Ubuntu-Package 
-<<build-essential>> (oder ähnliches).
+\section{Kompilierung mit make}\label{sec:make}
+Das Programm \texttt{make} erlaubt es, Abhängigkeiten zu definieren
+wie aus welchen Dateien weitere erzeugt werden sollen. Das wird normalerweise
+in der Softwareentwicklung verwendet, eignet sich aber auch für die 
+Kompilierung dieses Dokuments.\\
+%
+Das Programm \texttt{make} kann durch Installation des 
+folgendes Pakets installiert werden:
+
+\texttt{
+	sudo apt install build-essential
+}
+
+\noindent Für diese Vorlage wurde das Makefile in \autoref{lst:makefile} verwendet.
 
 \lstinputlisting[
 	language=make,
