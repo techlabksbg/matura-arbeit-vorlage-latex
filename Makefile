@@ -11,6 +11,8 @@ BIBFILE=$(BIB:.bib=)
 SHELL := /bin/bash
 
 all:	$(TEX).pdf
+	$(MAKE) -C praesentation all
+	$(MAKE) -C minimalbeispiel all
 
 $(TEX).pdf:	$(SRC) $(BIB)
 
@@ -20,18 +22,15 @@ show:	all
 	$(VIEWER) $(TEX).pdf
 
 git-clean:
-	cd praesentation && $(MAKE) git-clean
-	cd minimalbeispiel && $(MAKE) git-clean
+	$(MAKE) -C praesentation git-clean
+	$(MAKE) -C minimalbeispiel git-clean
 	rm -f $(TEX).{aux,bbl,blg,dvi,log,ps,toc,out,lof,ind,idx,ilg,bcf,lol,run.xml} *~ ksbglogo.pdf design.tex
 
 clean:	git-clean
-	cd praesentation && $(MAKE) clean
-	cd minimalbeispiel && $(MAKE) clean
+	$(MAKE) -C praesentation clean
+	$(MAKE) -C minimalbeispiel clean
 	rm -f $(TEX).pdf
 
 zip:	all git-clean
 	cd ..;rm -f matura-arbeit-vorlage-latex.zip; zip -r matura-arbeit-vorlage-latex.zip matura-arbeit-vorlage-latex -x \*.git
-
-fginfo:	zip
-	scp ../matura-arbeit-vorlage-latex.zip fginfo:public_html/.
 
