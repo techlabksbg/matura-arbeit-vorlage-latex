@@ -21,10 +21,12 @@ show:	all
 
 git-clean:
 	cd praesentation && $(MAKE) git-clean
+	cd minimalbeispiel && $(MAKE) git-clean
 	rm -f $(TEX).{aux,bbl,blg,dvi,log,ps,toc,out,lof,ind,idx,ilg,bcf,lol,run.xml} *~ ksbglogo.pdf design.tex
 
 clean:	git-clean
 	cd praesentation && $(MAKE) clean
+	cd minimalbeispiel && $(MAKE) clean
 	rm -f $(TEX).pdf
 
 zip:	all git-clean
