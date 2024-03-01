@@ -128,6 +128,13 @@
 \codetype{java}
 \codepackage{benjholla}
 \codefileprefix{code/}
+
+% Code-Blöcke für LaTeX-Codes, inspiriert von
+%https://tex.stackexchange.com/questions/209529/adding-a-caption-to-lstnewenvironment-using-mdframed
+\lstnewenvironment{latexcode}[2][]{
+  \lstset{language=[LaTeX]TeX, numbers=none, caption={[#1]{#1}}, label={#2}}}{%
+  \ignorespaces
+}
 % ========= ENDE VON CODEBLÖCKE ===========
 
 
@@ -226,6 +233,7 @@ bookmarksnumbered=true     % Kapitelnummern in Lesezeichen?
 \input{grafiken} %        \
 \input{compilieren} %     \
 \input{mathezeugs} %      \
+\input{darstellung}
 \input{massangaben} %      \
 \input{chemie} %      \
 \input{code} %            \
